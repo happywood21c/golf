@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["calendar"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+       var dataTable = new google.visualization.DataTable();
+       dataTable.addColumn({ type: 'date', id: 'Date' });
+       dataTable.addColumn({ type: 'number', id: 'Won/Loss' });
+       dataTable.addRows([
+          [ new Date(2019, 0, 1), 2 ],
+          [ new Date(2019, 2, 18), 1 ],
+          [ new Date(2019, 2, 19), 1 ],
+          [ new Date(2019, 2, 20), 1 ],
+          [ new Date(2019, 2, 21), -1 ],
+          [ new Date(2019, 2, 22), 1 ],
+          [ new Date(2019, 2, 23), 1 ],
+          [ new Date(2019, 3, 10), 2 ],
+          [ new Date(2019, 5, 4), 2 ],
+          [ new Date(2019, 6, 10), 2 ],
+          [ new Date(2019, 8, 4), 2 ],
+          [ new Date(2019, 10, 14),2 ]
+        ]);
+
+       var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+
+       var options = {
+         title: "Study Status",
+         height: 350,
+         calendar:{ cellSize: 30 },
+       };
+
+       chart.draw(dataTable, options);
+   }
+    </script>
+  </head>
+  <body>
+    <font size="150">
+    <script type="text/javascript">
+
+  today = new Date();
+
+  BigDay = new Date("november 14, 2019");
+  msPerDay = 24 * 60 * 60 * 1000 ;
+  timeLeft = (BigDay.getTime() - today.getTime());
+  e_daysLeft = timeLeft / msPerDay;
+  daysLeft = Math.floor(e_daysLeft);
+  e_hrsLeft = (e_daysLeft - daysLeft)*24;
+  hrsLeft = Math.floor(e_hrsLeft);
+  minsLeft = Math.floor((e_hrsLeft - hrsLeft)*60);
+
+  document.write("<p>수능까지<b>" +" "+ daysLeft + " 일 " +
+    hrsLeft +" 시간 " + minsLeft + " 분 남았음  </p>");
+  </script>
+    <div id="calendar_basic" style="width: 1000px; height: 1050px;"></div>
+  </body>
+</html>
