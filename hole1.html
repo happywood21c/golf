@@ -42,7 +42,8 @@ function displayLocation(position) {
 
 
     var distance = computeDistance(position.coords, ourCoords);
-    $("#distance").html("To home : "+distance*1000 + " m ");
+    var distance1 = distance*1000
+    $("#distance").html("To hole1 : "+Math.round(distance1) + " m ");
 
 }
 
